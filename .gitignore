@@ -1,0 +1,24 @@
+# ROMs and anything extracted from the game NEVER go into this repository
+rom/*
+!rom/README.md
+*.z64
+*.v64
+*.n64
+*.rom
+*.bin
+
+# Bulk analysis outputs that contain game data
+notes/dumps/
+
+# Ghidra projects
+*.gpr
+*.rep/
+ghidra/
+
+# Claude Code local (personal) settings
+.claude/settings.local.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/

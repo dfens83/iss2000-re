@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Blocks commits that would add ROM data to this public repository.
+# Enable once per clone:  git config core.hooksPath .githooks
+set -euo pipefail
+
+fail=0
+while IFS= read -r -d '' f; do
+  [ -f "$f" ] || continue
+  case "${f,,}" in
+    *.z64|*.v64|*.n64|*.rom|*.bin)
+      echo "BLOCKED: ROM-like extension: $f"; fail=1; continue ;;
+  esac
+  magic=$(head -c 4 "$f" | od -An -tx1 | tr -d ' \n')
+  case "$magic" in
+    80371240|37804012|40123780)
+      echo "BLOCKED: N64 ROM signature found in: $f"; fail=1; continue ;;
+  esac
+  size=$(wc -c < "$f")
+  if [ "$size" -gt 1048576 ]; then
+    echo "BLOCKED: file larger than 1 MB (possible dump): $f"; fail=1
+  fi
+done < <(git diff --cached --name-only --diff-filter=ACM -z)
+
+if [ "$fail" -ne 0 ]; then
+  echo "Commit aborted: no ROM or game data may be committed to this repository."
+  exit 1
+fi

@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 tools/rom_info.py:*)",
+      "Bash(python3 tools/find_strings.py:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(sha1sum:*)",
+      "Bash(ls:*)"
+    ],
+    "ask": [
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
+    ],
+    "deny": [
+      "Read(./rom/**)",
+      "Read(./**/*.z64)",
+      "Read(./**/*.v64)",
+      "Read(./**/*.n64)",
+      "Bash(git add -f:*)",
+      "Bash(git add --force:*)"
+    ]
+  }
+}
