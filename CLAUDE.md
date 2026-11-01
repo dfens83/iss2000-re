@@ -64,6 +64,8 @@ Tracked in `notes/hypotheses.md`. Summary:
 - Phase 1, **Step 1 pending**: owner must run `/rom-check` on his ROM and
   report the game code and SHA-1. The region letter decides between H1/H3
   and H2/H4.
+- Next study (planned): compare BR vs EU ROMs, locate the career-mode code
+  and port it to the BR build. Plan: `docs/study-eu-port.md`.
 
 ## Phases
 

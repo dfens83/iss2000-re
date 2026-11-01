@@ -26,7 +26,7 @@ game's menus.
 ## Quick start (Linux / WSL)
 
 ```bash
-git clone https://github.com/<user>/iss2000-re.git
+git clone https://github.com/dfens83/iss2000-re.git
 cd iss2000-re
 git config core.hooksPath .githooks      # enables the anti-ROM commit guard
 python3 tools/rom_info.py rom/YOUR_FILE --convert rom/baserom.z64
@@ -34,7 +34,9 @@ python3 tools/find_strings.py rom/baserom.z64 --entropy
 ```
 
 Full guide: [`docs/phase1-guide.md`](docs/phase1-guide.md) ·
-Findings: [`notes/`](notes/)
+Findings: [`notes/`](notes/) ·
+Next study: [`docs/study-eu-port.md`](docs/study-eu-port.md) ·
+Contributing: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
 ## Layout
 
