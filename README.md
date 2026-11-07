@@ -4,6 +4,19 @@ Reverse-engineering study of **International Superstar Soccer 2000** for the
 Nintendo 64 (Konami / KCEO – Major A), focused on the **Brazilian release**
 distributed by Gradiente.
 
+## Brazilian release reference
+
+The following photos show the Brazilian retail box and cartridge from the
+project maintainers' physical copy.
+
+| Box front | Cartridge front |
+|-----------|-----------------|
+| ![Brazilian ISS 2000 box front](assets/physical-media/iss2000-brazilian-box-front.jpg) | ![Brazilian ISS 2000 cartridge front](assets/physical-media/iss2000-brazilian-cartridge-front.jpg) |
+
+Box back: [photo](assets/physical-media/iss2000-brazilian-box-back.jpg). Manual
+(Portuguese): [full scan](docs/references/iss2000-brazilian-instruction-manual.pdf).
+The career-mode description spans printed pages 15–16 (PDF scan pages 9–10).
+
 ## The mystery
 
 The Brazilian manual describes a **career mode** that never appears in the
@@ -42,7 +55,8 @@ Contributing: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
 ```
 tools/   analysis scripts (Python 3, standard library only)
-docs/    guides
+assets/  reference photos of the Brazilian physical release
+docs/    guides and reference material
 notes/   journal, hypotheses and evidence
 rom/     your ROM (git-ignored)
 .claude/ Claude Code project settings and commands
@@ -50,8 +64,11 @@ rom/     your ROM (git-ignored)
 
 ## Legal
 
-*International Superstar Soccer 2000* is © Konami. This repository contains
-only original tools and notes. **No ROM, game code or assets are, or will
-be, distributed here.** You need a dump of a cartridge you own.
+*International Superstar Soccer 2000* and the artwork and text shown in the
+reference media remain the property of their respective rights holders. The
+reference photos and manual scan are not covered by the repository's MIT
+license. This repository does not include a ROM, game code, or data extracted
+from the game. You need a dump of a cartridge you own.
 
-Tools and documentation are released under the MIT License (see `LICENSE`).
+Original tools and project-authored documentation are released under the MIT
+License (see `LICENSE`).
