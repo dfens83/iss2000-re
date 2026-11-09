@@ -13,6 +13,7 @@ ROM_EXTENSIONS = {".z64", ".v64", ".n64", ".rom", ".bin"}
 ROM_SIGNATURES = {bytes.fromhex(value) for value in ("80371240", "37804012", "40123780")}
 MAX_UNAPPROVED_SIZE = 1_048_576
 REFERENCE_IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png"}
+GAMEPLAY_REFERENCE_EXTENSIONS = {".png", ".gif", ".mp4"}
 
 
 def is_reference_media(filename: str) -> bool:
@@ -22,6 +23,8 @@ def is_reference_media(filename: str) -> bool:
         return suffix in REFERENCE_IMAGE_EXTENSIONS
     if normalized.startswith("docs/references/"):
         return suffix == ".pdf"
+    if normalized.startswith("assets/gameplay/"):
+        return suffix in GAMEPLAY_REFERENCE_EXTENSIONS
     return False
 
 
