@@ -23,9 +23,15 @@ restores what is found and, later, a native PC port.
 
 ## Hard rules
 
-1. **Never commit a ROM, a fragment of it, or any Konami asset** (code bytes,
-   textures, audio, text dumps). `.gitignore` and `.githooks/pre-commit` guard
-   this; do not weaken them.
+1. **Never commit a game ROM, a fragment of one, game code, or data extracted
+   from a ROM** (including textures, audio, bulk text dumps and decompressed
+   data). Maintainers may add photographs and scans of Brazilian retail
+   physical media under `assets/physical-media/` and `docs/references/`, plus
+   screenshots and short gameplay captures under `assets/gameplay/`, for
+   identification and research. These third-party reference materials are not
+   covered by the repository's MIT license. This exception never permits ROM
+   data. `.gitignore` and `.githooks/pre-commit` guard game data; do not weaken
+   those checks.
 2. **Never load the ROM into context** with Read or `cat`/`xxd` of large
    ranges. Use the scripts in `tools/`, and print only small, targeted ranges
    (offsets + a few dozen bytes) when needed.
@@ -82,8 +88,11 @@ CLAUDE.md            this file
 README.md            public overview
 .claude/             Claude Code settings and slash commands
 .githooks/           pre-commit guard against ROM commits
+assets/physical-media/ reference photos of the Brazilian retail release
+assets/gameplay/       screenshots and short gameplay reference captures
 tools/               analysis scripts (Python 3, stdlib only)
-docs/                guides and technical documentation
+docs/                guides, technical documentation and references
+docs/references/     scans of physical documentation
 notes/               journal, hypotheses, ROM identification (evidence)
 notes/dumps/         bulk outputs, git-ignored
 rom/                 owner's ROM, git-ignored (expected: rom/baserom.z64)

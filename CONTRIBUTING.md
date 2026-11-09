@@ -3,17 +3,27 @@
 Thanks for helping. This is a public reverse-engineering study, so a few rules
 are strict. Please read this page before your first commit.
 
-## The golden rule: no game data
+## The golden rule: no ROM or extracted game data
 
-**Never commit a ROM, a fragment of one, or any Konami asset.** That covers
-code bytes, textures, audio, text dumps and decompressed data. The game is
-© Konami, and this repository contains only original tools and notes.
+**Never commit a game ROM, a fragment of one, game code, or data extracted
+from a ROM.** This includes code bytes, textures, audio, bulk text dumps and
+decompressed data.
+
+Maintainers may commit photographs and scans of Brazilian retail physical
+media under `assets/physical-media/` and `docs/references/` for identification
+and research. They may also commit maintainer-captured screenshots and short
+gameplay clips under `assets/gameplay/` for the same purpose. These reference
+materials contain third-party content and are not covered by the repository's
+MIT license. This exception does not permit ROM data or material extracted
+from the game.
 
 Two guards enforce this:
 
 - `.gitignore` ignores `rom/*`, the usual ROM extensions and `notes/dumps/`.
-- `.githooks/pre-commit` blocks files that have ROM extensions, contain the N64
-  ROM signature, or are larger than 1 MB.
+- `.githooks/pre-commit` blocks files with ROM-like extensions or the N64 ROM
+  signature. It also blocks files larger than 1 MiB except approved image
+  files under `assets/physical-media/`, PDFs under `docs/references/`, and
+  PNG, GIF or MP4 reference captures under `assets/gameplay/`.
 
 The hook is **not** enabled automatically by `git clone`. Enable it once per
 clone:
@@ -22,7 +32,7 @@ clone:
 git config core.hooksPath .githooks
 ```
 
-Do not weaken or bypass these guards (`--no-verify` included).
+Do not weaken the ROM checks or bypass the hook (`--no-verify` included).
 
 You may quote short excerpts that a finding needs: an address, a single
 instruction or a short string. Bulk output goes to `notes/dumps/`, which is
